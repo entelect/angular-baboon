@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="angular-baboon" class="ng-app:angular-baboon" ng-strict-di ng-hint>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deloitte Total Rewards Client Portal">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <title ng-bind="pageTitle"></title>
+    <!--[if lt IE 9]>
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/ie8/0.2.2/ie8.js"></script>
+        <![endif]-->
+    <!-- vendor:js -->
+    <!-- endinject -->
+    <!-- templates:js -->
+    <!-- endinject -->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- vendor:css -->
+    <!-- endinject -->
+    <!-- vendor:woff -->
+    <!-- endinject -->
+    <!-- vendor:ttf -->
+    <!-- endinject -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- live reload -->
+    <!-- @if ENV='dev' -->
+    <script src="http://localhost:35729/livereload.js"></script>
+    <!-- @endif -->
+
+</head>
+
+<body ng-controller="AppCtrl as appCtrl" class="full-height" ng-strict-di>
+    <navbar></navbar>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <breadcrumbs></breadcrumbs>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div ui-view>
+                    <h1>Unsupported Web Browser</h1>
+                    <!--[if IE 8]><h3>Upgrade your browser</h3>
+					<p>Your browser is not supported at this time. <a href="http://browsehappy.com/" target="_blank">Browse Happy</a> can assist you in upgrading to a modern web browser for free.</p>
+					<![endif]-->
+                    <noscript>
+                        <h3>JavaScript required</h3>
+                        <p>For full functionality of this site it is necessary to enable JavaScript. Here are the <a href="http://www.enable-javascript.com/"
+                            target="_blank">
+ instructions how to enable JavaScript in your web browser</a>.</p>
+                    </noscript>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>© Entelect {{::appCtrl.currentDate | date:'yyyy'}}</p>
+        </footer>
+    </div>
+</body>
+
+</html>

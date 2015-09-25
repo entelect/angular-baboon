@@ -1,0 +1,107 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button ng-if="navbar.isLoggedIn" ng-click="navbar.isCollapsed = !navbar.isCollapsed" type="button" class="navbar-toggle"
+			data-toggle="collapse" data-target="#collapsed_navbar_loggedIn">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<button ng-if="!navbar.isLoggedIn" ng-click="navbar.isCollapsed = !navbar.isCollapsed" type="button" class="navbar-toggle"
+			data-toggle="collapse" data-target="#collapsed_navbar_public">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">
+				<img src="assets/deloitte-logo-small.png" />
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="collapsed_navbar_loggedIn" ng-if="navbar.isLoggedIn" collapse="navbar.isCollapsed">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown" dropdown="">
+					<a href="" dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown">
+						<strong class="fa fa-2 fa-question-circle navbar-icon text-info " style="font-size:1.6em"></strong>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a ui-sref="faq">FAQ</a>
+						</li>
+						<li>
+							<a ui-sref="glossary">Glossary</a>
+						</li>
+						<li>
+							<a ui-sref="terms-and-conditions">Terms and Conditions</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a ui-sref="contact-us">Contact Us&nbsp;</a>
+						</li>
+					</ul>
+				</li>
+				<span dt-notifications></span>
+				<li class="dropdown" dropdown="">
+					<a href="" dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown">{{::navbar.currentUser.firstName}}&nbsp;{{::navbar.currentUser.lastName}}<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a ui-sref="user.details">User Details</a>
+						</li>
+						<li>
+							<a ui-sref="home" ng-click="navbar.logout()">Logout</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav">
+				<li ng-repeat="link in navbar.leftLinks" ui-sref-active="active" class="dropdown" dropdown="">
+					<a ui-sref="{{::link.state}}" ng-if="link.dropDownLinks.length == 0">{{::link.label}}</a>
+					<a ng-if="link.dropDownLinks.length > 0" ng-click="return;" href="" dropdown-toggle="" class="dropdown-toggle" data-toggle="dropdown">{{::link.label}}&nbsp;<strong ng-if="link.dropDownLinks.length > 0" class="caret"></strong></a>
+					<ul class="dropdown-menu" ng-if="link.dropDownLinks.length > 0">
+						<li ng-repeat="dropDownLink in link.dropDownLinks">
+							<a ui-sref="{{::dropDownLink.state}}">{{::dropDownLink.label}}</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="collapse navbar-collapse" id="collapsed_navbar_public" ng-if="!navbar.isLoggedIn" collapse="navbar.isCollapsed">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown" dropdown="">
+					<form class="navbar-form" role="login" name="loginForm" novalidate>
+						<div class="btn-group" dropdown>
+							<button type="button" class="btn btn-default" dropdown-toggle>Help&nbsp;
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									<a ui-sref="account.forgot-password">I Forgot My Password</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a ui-sref="terms-and-conditions">Terms and Conditions</a>
+								</li>
+								<li>
+									<a ui-sref="contact-us">Contact Us&nbsp;</a>
+								</li>
+							</ul>
+						</div>
+						<div class="form-group" ng-class="{'has-error': loginForm.email.$invalid && loginForm.email.$touched}">
+							<input ng-model="navbar.loginCredentials.email" type="email" class="form-control" name="email" placeholder="Email" required
+							ng-disabled="navbar.loggingIn">
+						</div>
+						<div class="form-group" ng-class="{'has-error': loginForm.password.$invalid && loginForm.password.$touched}">
+							<input ng-model="navbar.loginCredentials.password" type="password" class="form-control" name="password" placeholder="Password"
+							required ng-disabled="navbar.loggingIn">
+						</div>
+						<button ng-disabled="loginForm.$invalid" ng-click="navbar.login()" request-spinner class="btn btn-primary">
+							<i class="fa fa-sign-in"></i>&nbsp;Login</button>
+						<button ng-if="navbar.isClientPortal" ng-click="navbar.goToState('subscriptions.contact-me')" class="btn btn-success">
+							<i class="fa fa-envelope-o"></i>&nbsp;Contact Me</button>
+					</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

@@ -1,0 +1,7 @@
+<h3 class="no-margin-top">{{::reportViewer.report.title}}</h3>
+<div ng-if="reportViewer.externalLink">
+    <div class="panel panel-default">
+        <iframe width="100%" class="panel-body" style="padding:0px; border:0px;" height="{{::reportViewer.height}}" ng-src="{{::reportViewer.externalLink}}"></iframe>
+    </div>
+</div>
+<button ui-sref="reports.index" class="btn btn-link pull-right">Back to reports index</button>

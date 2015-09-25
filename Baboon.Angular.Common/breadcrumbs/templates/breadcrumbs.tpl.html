@@ -1,0 +1,8 @@
+<ol class="breadcrumb">
+    <li><a ui-sref="home"><i class="fa fa-home"></i></a></li>
+    <li ng-repeat="state in breadcrumbs.navigationState.currentState.path">
+        <a ng-if="!breadcrumbs.navigationState.isCurrent(state) && state.abstract" ui-sref="{{::state.data.state}}({{breadcrumbs.stateParams}})">{{breadcrumbs.navigationState.getDisplayName(state)}}</a>
+        <a ng-if="!breadcrumbs.navigationState.isCurrent(state) && !state.abstract" ui-sref="{{::state.data.state}}({{breadcrumbs.stateParams}})">{{breadcrumbs.navigationState.getDisplayName(state)}}</a>
+        <a ng-if="breadcrumbs.navigationState.isCurrent(state)" class="active" ui-sref="{{::state.data.state}}({{breadcrumbs.stateParams}})">{{breadcrumbs.navigationState.getDisplayName(state)}}</a>
+    </li>
+</ol>

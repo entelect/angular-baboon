@@ -1,0 +1,49 @@
+<h3 class="no-margin-top">Reports</h3>
+<div class="panel panel-default" style="border:0">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-8">
+                <ng-form>
+                    <div class="form-inline margin-bottom-5">
+                        <div class="form-group ">
+                            <input class="form-control " type="text" ng-model="reportsIndex.searchText" placeholder="Search by title">
+                        </div>
+                        <button type="submit" class="btn btn-default" ng-click="reportsIndex.getPagedDataAsync()" request-spinner>
+                            <i class="fa fa-search"></i>&nbsp;Search</button>
+                        <button type="submit" class="btn btn-link btn-sm" ng-click="reportsIndex.reset()">Clear search</button>
+                    </div>
+                </ng-form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Created Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="report in reportsIndex.availableReports">
+                            <td>
+                                <a tooltip-placement="right" tooltip="Click to view this dashboard" ui-sref="reports.viewer({reportId: report.reportId})">{{::report.title}}</a>
+                            </td>
+                            <td>{{::report.createdDateUtc | date:'longDate'}}</td>
+                        </tr>
+                        <tr ng-show="reportsIndex.availableReports.length<=0">
+                            <td colspan="3">
+                                <div class="alert alert-info text-center" role="alert">
+                                    <h3 class="blank-index">
+                                        <i class="fa fa-info-circle fa-lg"></i>&nbsp;No reports to display.</h3>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <dt-pager ng-show="reportsIndex.availableReports.length>0" paging-options="reportsIndex.pagingOptions" paging-function="reportsIndex.getPagedDataAsync"></dt-pager>
+    </div>
+</div>
+<button ui-sref="home" class="btn btn-link pull-right">Back to home</button>

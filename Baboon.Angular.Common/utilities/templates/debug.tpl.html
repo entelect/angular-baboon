@@ -1,0 +1,15 @@
+<div class="alert alert-danger debugger">
+	<style>
+		.debugger_pre {
+			padding: 5px;
+			margin: 10px 0;
+			background-color: #000000;
+			border: 1px solid #DADADA;
+			border-radius: 3px;
+			color: rgb(1, 255, 83);
+		}
+	</style>
+	<button class="btn btn-danger btn-sm" ng-click="toggle=!toggle"><i ng-class="{'fa fa-minus-square': toggle,'fa fa-plus-square': !toggle}"></i> Debugging <strong>{{varName}}</strong>
+	</button>
+	<pre ng-show="toggle" class="debugger_pre">{{ngModel|json}}</pre>
+</div>
