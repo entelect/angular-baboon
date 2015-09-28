@@ -26,7 +26,6 @@ gulp.task('release:test', ['release:build'], function () {
         .pipe(karma({
             configFile: 'karma.config.js',
             action: 'run',
-            browsers: ['Chrome'],
             reporters: [
     'teamcity'
     ]

@@ -152,6 +152,6 @@ gulp.task('dev:index', ['clean:html'], function () {
 
 
 // build task
-gulp.task('dev:build', ['clean'], function (callback) {
+gulp.task('dev:build', [], function (callback) {
     runSequence(['lint', 'dev:js:vendor', 'dev:css:vendor', 'dev:fonts', 'dev:css', 'dev:templates', 'dev:js', 'dev:config', 'dev:assets'], 'dev:index', 'copy-build-to-dist', callback);
 });

@@ -7,7 +7,7 @@
     
     // all app modules define below 
     'templates',
-    //'angular-baboon.common'
+    'angular-baboon.common',
     'angular-baboon.reports',
     'angular-baboon.home',
 		

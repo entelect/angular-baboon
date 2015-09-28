@@ -8,9 +8,11 @@ var environment = require('../environment.config.js');
 
 gulp.task('clean', function (callback) {
     del([
-        'coverage/*', environment.buildDirectory + '/*',
+        'coverage/*', 
+        environment.buildDirectory + '/*',
         environment.revisionDirectory + '/*',
-        environment.distributionDirectory + '/*'], {
+        environment.distributionDirectory + '/*'
+        ], {
             force: true
         },
         callback);

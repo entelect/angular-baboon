@@ -38,8 +38,8 @@ gulp.task('scaffold', function () {
     var opts = {
         debug: environment.debug,
         appName: environment.appName,
-        resourceOutput: environment.sourceDirectory + '/app/resources/generated',
-        testsOutput: environment.sourceDirectory + '/app/resources/generated/tests',
+        resourceOutput: environment.sourceDirectory + '/generated/resources',
+        testsOutput: environment.sourceDirectory + '/generated/resources/tests',
         serverBase: environment.appConfig[environment.target].serverBase,
         resourceConfigName: 'resourceConfig',
         ngAnnotateOptions: {

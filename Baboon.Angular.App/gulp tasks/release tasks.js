@@ -154,6 +154,6 @@ gulp.task('release:index', function () {
 });
 
 // build task optimized for distribution or production
-gulp.task('release:build', ['clean'], function (callback) {
+gulp.task('release:build', [], function (callback) {
     runSequence(['lint', 'release:js:vendor', 'release:css:vendor', 'release:fonts', 'release:css', 'release:templates', 'release:js', 'release:assets'], 'release:index', callback);
 });

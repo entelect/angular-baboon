@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('account.forgotpassword')
+    angular.module('angular-baboon.common.account.forgotpassword')
         .config(function ($stateProvider) {
 
             $stateProvider

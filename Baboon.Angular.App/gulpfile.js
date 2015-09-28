@@ -15,7 +15,7 @@ gulp.task('qa', ['clean'], function () {
         .on('error', gutil.log);
 });
 
-gulp.task('dev', [], function () {
+gulp.task('dev', ['clean'], function () {
     environment.target = 'dev';
     environment.debug = false; //in use
     return gulp.start(['dev:test'])

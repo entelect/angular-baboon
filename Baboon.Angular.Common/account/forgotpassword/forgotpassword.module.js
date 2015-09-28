@@ -1,12 +1,12 @@
-(function(){
+(function () {
   'use strict';
 
-  angular.module('account.forgotpassword', [
-      'ui.router',  
-      'account.forgotpassword.forgotpassword',
-      'account.forgotpassword.activate-account'
-        
-        
-    ]);
+  angular.module('angular-baboon.common.account.forgotpassword', [
+    'ui.router',
+    'angular-baboon.common.account.forgotpassword.forgotpassword',
+    'angular-baboon.common.account.forgotpassword.activate-account'
+
+
+  ]);
 
 })();
