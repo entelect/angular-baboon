@@ -1,4 +1,4 @@
-## Synopsis
+## Baboon.Angular.App Synopsis
 This readme outlines the setup, configuration and usage of the Angular Baboon seed project.
 ## Table of Contents
 
@@ -135,12 +135,20 @@ This is very useful in maintaining consistency between developer environments.
 `npm shrinkwrap` generates a file called _npm-shrinkwrap.json_ which will override the normal _packages.json_ file when resolving dependencies during an `npm install`.
 
 ## 4. <a name="ProjectStructure"></a>Project Structure
+TODO
+
 ## 5. <a name="StyleGuide"></a>Style Guide
+TODO
+
 ## 6. <a name="Testing"></a>Testing
+TODO
+
 ### 6.1 Code Coverage
+TODO
 
 
 ## 7. <a name="CommonIssues"></a>Common Issues
+TODO
 
 ### 7.1 Node Package Installation
 
