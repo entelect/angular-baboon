@@ -36,17 +36,20 @@ module.exports = function (karma) {
             'karma-phantomjs-launcher',
             'karma-phantomjs2-launcher'
         ],
+
         preprocessors: {
-            preprocessors: {
-                'src/**/!(.spec).js': 'coverage',
-                'src/**/*.spec.json': ['html2js']
-            }
+            'dist/**/*.js': ['coverage'],
+            'src/**/*.spec.json': ['html2js']
         },
         /**
          * How to report, by default.
          */
-        reporters: 'dots',
-
+        reporters: ['progress', 'coverage'],
+        
+        coverageReporter: {
+            type: 'html',
+            dir: 'coverage'
+        },
         /**
          * On which port should the browser connect, on which port is the test runner
          * operating, and what is the URL path for the browser to use.

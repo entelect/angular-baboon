@@ -1,34 +1,45 @@
 var gulp = require('gulp');
-var karma = require('gulp-karma');
+var karma = require('karma');
+var path = require('path');
 var gutil = require('gulp-util');
 var filesize = require('gulp-filesize');
 var debug = require('gulp-debug');
+var karmaParseConfig = require('karma/lib/config').parseConfig;
 
-var environment = require('../environment.config.js');
+function runKarma(configFilePath, options, ci ,cb) {
 
-gulp.task('dev:test', ['dev:build'], function () {
-    return gulp.src([
-    ])
-        .pipe(karma({
-            configFile: 'karma.config.js',
-            action: 'run',
-            reporters: [
-    'dots',
-    'coverage'
-    ]
-        }))
-        .on('error', gutil.log);
+	configFilePath = path.resolve(configFilePath);
+
+	var server = karma.server;
+	var log=gutil.log, colors=gutil.colors;
+	var config = karmaParseConfig(configFilePath, {});
+
+    Object.keys(options).forEach(function(key) {
+      config[key] = options[key];
+    });
+	
+	if(ci){
+		config.reporters = ['teamcity','coverage']
+	}
+
+	server.start(config, function(exitCode) {
+		log('Karma has exited with ' + colors.red(exitCode));
+		cb();
+		process.exit(exitCode);
+	});
+}
+
+gulp.task('dev:test', ['dev:build'], function(cb) {
+	runKarma('karma.config.js', {
+		autoWatch: false,
+		singleRun: true
+	}, false, cb);
 });
 
-gulp.task('release:test', ['release:build'], function () {
-    return gulp.src([
-    ])
-        .pipe(karma({
-            configFile: 'karma.config.js',
-            action: 'run',
-            reporters: [
-    'teamcity'
-    ]
-        }))
-        .on('error', gutil.log);
+gulp.task('release:test', ['release:build'], function(cb) {
+	runKarma('karma.config.js', {
+		autoWatch: false,
+		singleRun: true
+	}, true, cb);
 });
+
