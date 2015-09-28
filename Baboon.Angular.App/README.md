@@ -97,7 +97,7 @@ The _gulpfile.js_ has the following build tasks setup:
 
 `gulp clean` - Cleans out the build, distribution and code coverage directories.
 
-`gulp watch` - Watches the source directory for changes, on which modified files are selectively rebuilt and live reloaded.
+`gulp watch` - Watches the source directory for file contents changes, on which modified files are selectively rebuilt and live reloaded. Note that new or deleted files are not detected by gulp watch at this time.
 
 `gulp dev` - Once off build with Teamcity reporting and minification for the dev environment.
 
