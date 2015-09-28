@@ -7,16 +7,16 @@
 //your site URLs
 var baseUrl = {
 	dev: {
-		serverName: 'client.phambili.local',
+		serverName: 'app.baboon.local',
         ssrsServerName: 'essqlreports/ReportServer_MSSQL2014'
 	},
 	qa: {
-		serverName: 'deloittephambiliclientqa.entelectprojects.co.za',
+		serverName: 'app-baboon-qa.entelectprojects.co.za',
         ssrsServerName: 'essqlreports/ReportServer_MSSQL2014'
 	},
 	live: {
-		serverName: 'bm.deloitte.co.za',
-        ssrsServerName: '197.97.125.243/ReportServer'
+		serverName: 'app.entelect.co.za',
+        ssrsServerName: '192.168.1.1/ReportServer'
 	}
 };
 
@@ -45,9 +45,6 @@ module.exports = {
 	//the app's intermediary build directory
 	buildDirectory: './.build',
 	
-	//the app's intermediary file revisioning directory
-	revisionDirectory: 'temp-rev', //deprecated
-	
 	//the app's common directory
 	commonDirectory: '../Baboon.Angular.Common',
 	
@@ -55,16 +52,14 @@ module.exports = {
 	apiSpecificationDirectory: './src/api',
 	
 	//bootstrap directory
-	bootstrapDir: './bower_components/bootstrap-sass',
-	
-	//the url for app's API Swagger definition. Only used when scaffolding with ng-scaffold 
-    swaggerAPIDocsUrl: 'http://client.phambili.local/swagger/api-docs',
+	bootstrapDirectory: './bower_components/bootstrap-sass',
 	
 	//the app's build output directory
 	distributionDirectory: './dist', //supports relative pathing e.g. ../dist to place the distribution in the Angular project's parent directory
 	
-	cssDistributionDirectory: '../Phambili.Web.Client.Public/Content', //supports relative pathing e.g. ../dist to place the distribution in the Angular project's parent directory
-
+	//the url for app's API Swagger definition. Only used when scaffolding with ng-scaffold 
+    swaggerAPIDocsUrl: 'http://app.baboon.local/swagger/api-docs',
+	
 	//explicit list of included vendor javascript dependencies
 	vendorJsFiles: [
 		'bower_components/jquery/dist/jquery.min.js',
@@ -84,7 +79,7 @@ module.exports = {
 
 	//explicit list of included vendor css dependencies
 	vendorCssFiles: [ 
-		//don't add boot strap in here (it's included as part of the sass build)
+		//don't add bootstrap in here (it's included as part of the bootstrap-sass build pipeline)
 		'bower_components/angular-toastr/dist/angular-toastr.min.css'
     ],
 	

@@ -6,7 +6,7 @@ var filesize = require('gulp-filesize');
 var debug = require('gulp-debug');
 var karmaParseConfig = require('karma/lib/config').parseConfig;
 
-function runKarma(configFilePath, options, ci ,cb) {
+function runKarma(configFilePath, options, isCI ,cb) {
 
 	configFilePath = path.resolve(configFilePath);
 
@@ -18,7 +18,7 @@ function runKarma(configFilePath, options, ci ,cb) {
       config[key] = options[key];
     });
 	
-	if(ci){
+	if(isCI){
 		config.reporters = ['teamcity','coverage']
 	}
 

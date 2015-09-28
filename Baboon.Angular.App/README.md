@@ -22,11 +22,11 @@ This readme outlines the setup, configuration and usage of the Angular Baboon se
 Node is used as the environment to run all of the Angular application's build tools. 
 In general, none of your node packages should be included your final Angular application.
 
-To get started, you'll first need to do a once off installion of gulp and bower as globally accessible packages from the command line (-g ) using node's package manager (npm):
+To get started, you'll first need to do a once off isntallation of gulp and bower as globally accessible packages from the command line (-g ) using node's package manager (npm):
 
 `npm install -g gulp bower`
 
-Then run the general package installion. The installer wil resolve package dependencies from the _package.json_ file.
+Then run the general package isntallation. The installer will resolve package dependencies from the _package.json_ file.
 
 `npm install`
 
@@ -111,7 +111,7 @@ You can add your custom gulp files to the gulp tasks directory.
 They will automatically be included into the master gulp file when executing gulp tasks.
 ```
 Baboon.Angular.App
-│   README.md
+|	README.md
 |	gulpfile.js
 │   ...   
 │
@@ -136,12 +136,122 @@ This is very useful in maintaining consistency between developer environments.
 
 ## 4. <a name="ProjectStructure"></a>Project Structure
 TODO
+```
+Baboon.Angular.App
+|	.bowerrc
+|	.gitignore
+|	.jshintrc
+|	bower.json 
+|	environment.config.js
+|	gulpfile.js
+|	karma.config.js
+|	package.json
+|	README.md   
+|
+└───.build
+└───bower_components
+└───coverage
+└───dist
+└───gulp tasks
+└───node_modules
+└───src
+	|	app.js
+	|	app.scss
+	|	app.module.js
+	|	app.spec.js
+	|	app.vendors.module.js
+	|	config.tpl.js
+	|	index.html
+	|
+	└───api
+	└───assets
+	└───generated
+	└───modules
 
+```
+### 4.1 Angular Module Structure
+Angular Baboon promotes the usage of module and submodule structures that are feature focused. 
+Each module contains only the controllers, filters, directives etc. that it needs. 
+Similarly, each module contains its own styling and tests. 
+Any shared code between (sub)modules should be elevated to a higher module. 
+This approach keeps modules small and easy to test.
+```
+myModule
+|	myModule.config.js
+|	myModule.module.js
+|	myModule.scss  
+|
+└───controllers
+└───directives
+└───filters
+└───services
+└───templates
+└───tests
+└───mySubModule
+	|	mySubModule.config.js
+	|	mySubModule.module.js
+	|	mySubModule.scss  
+	|
+	└───controllers
+	└───directives
+	└───filters
+	└───services
+	└───templates
+	└───tests
+```
+The _*.module.js_ files simply contain the module definition and dependency hierarchy. 
+Not the usage of the fully qualified name space. The prevents module name collision as the project grows:
+```javascript
+(function(){
+  'use strict';
+  angular.module( 'angular-baboon.my-module', [
+      'angular-baboon.my-module.my-sub-module'
+    ]);
+
+})();
+```
+The _*.config.js_ files contain any module configration code, for example [ui-router](https://github.com/angular-ui/ui-router) state configuration:
+```javascript
+(function () {
+    'use strict';
+    angular.module('angular-baboon.my-module')
+        .config(function ($stateProvider) {
+            $stateProvider
+                .state('my-module', {
+                    abstract: true,
+                    url: '/my-module',
+                    template: '<div>Hello World</div>'
+                });
+        });
+})();
+``` 
 ## 5. <a name="StyleGuide"></a>Style Guide
-TODO
+Every major open-source project has its own style guide: a set of conventions (sometimes arbitrary) about how to write code for that project. 
+It is much easier to understand a large codebase when all the code in it is in a consistent style.
+
+But because this just a seed project, you can choose to ignore all of this and do things your own way.
+
+Angular Baboon does have some style enforcement via jshint, which you can choose to customize, but for the most part Angular Baboon is convention driven. The following guides are recommended:
+### 5.1 Angular
+Angular Baboon follows [John Papa's style guide](https://github.com/johnpapa/angular-styleguide) for the Angular code (mostly).
+We've found this to be a practical and reletively maintainable style.
+
+### 5.2 Bootstrap SASS
+http://sass-guidelin.es/
+
+### 5.3 IDE
+Its entirely up to you what IDE you use. For the the most consistent code base, it's recommended that developers use a common IDE. 
+Angular Baboon is written in [Visual Studio Code](https://code.visualstudio.com/) and uses the built in code formatters. 
+In no particular order, some other great alternatives are:
+
+* [WebStorm](https://www.jetbrains.com/webstorm/)
+* [Atom (Free)](https://atom.io/)
+* [Brackets.io (Free)](http://brackets.io/)
+* [Visual Studio 2013+](https://www.visualstudio.com/)
+
 
 ## 6. <a name="Testing"></a>Testing
-TODO
+[Year Of Moo](http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html)
 
 ### 6.1 Code Coverage
 TODO

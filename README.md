@@ -13,7 +13,7 @@ Furthermore, Angular Baboon seeks to bring together Entelect's consensus on Angu
 * Scalable Angular project structures.
 * Multiple environment configurations (dev, QA and live)
 * Continuous integration ready build tasks with TeamCity test reporters.
-* Out the box test runner configuration and environment 
+* Out the box testing enviroment and test runner configuration.
 * A collection of [common modules](Baboon.Angular.Common/README.md)
 * ...
 

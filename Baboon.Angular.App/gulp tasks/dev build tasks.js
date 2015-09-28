@@ -42,7 +42,7 @@ gulp.task('dev:fonts', ['clean:fonts'], function () {
 gulp.task('dev:css', ['clean:css'], function () {
     return gulp.src([environment.sourceDirectory + '/**/*.scss', environment.commonDirectory + '/**/*.scss'])
         .pipe(sass({
-            includePaths: [environment.bootstrapDir + '/assets/stylesheets'],
+            includePaths: [environment.bootstrapDirectory + '/assets/stylesheets'],
         }))
         .pipe(gulp.dest(environment.buildDirectory + '/css/app/'))
         .on('error', gutil.log);;

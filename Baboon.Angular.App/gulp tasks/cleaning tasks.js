@@ -35,22 +35,6 @@ gulp.task('clean:dist', function (callback) {
         callback);
 });
 
-gulp.task('clean:rev', function (callback) {
-    del([
-       environment.revisionDirectory + '/*'], {
-            force: true
-        },
-        callback);
-});
-
-gulp.task('clean:content', function (callback) {
-    del([
-       environment.cssDistributionDirectory + '/css',environment.cssDistributionDirectory + '/assets'], {
-            force: true
-        },
-        callback);
-});
-
 gulp.task('clean:assets', function (callback) {
     del([
         environment.buildDirectory + '/assets/**/*',
