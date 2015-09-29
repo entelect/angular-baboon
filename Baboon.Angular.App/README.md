@@ -83,7 +83,7 @@ Modify the _.gitignore_ file to customize what Git includes in your source contr
 
 ### 2.4 Karma
 [Karma](http://karma-runner.github.io/0.13/index.html) is the tool used to run the Angular tests that are written with [Jasmine](http://jasmine.github.io/edge/introduction.html). 
-By convention, this projects indicates test files with the _.spec.js_ extension and mock test data files as _.spec.json_. 
+By convention, this projects indicates test files with the _.spec.js_ extension. Mock test data files, or fixtures, are demarcated as _.spec.json_. 
 
 Modify the _karma.config.js_ file to customize the testing configuration or include dependencies required during testing.
 
@@ -312,7 +312,27 @@ scaffolding - how are the backend api calls happening?
 
 ## 9. <a name="License"></a>License
 
-ToDo
+The MIT License (MIT)
+
+Copyright (c) 2015 Entelect
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 
 
