@@ -5,7 +5,7 @@
     'angular-baboon.vendors',
     // all vendor/bower module defined above
     
-    // all app modules define below 
+    // all app modules defined below 
     'templates',
     'angular-baboon.common',
     'angular-baboon.reports',

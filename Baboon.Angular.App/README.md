@@ -76,8 +76,9 @@ Modify the _environment.config.js_ file to change the Angular application's dire
 ### 2.3 Git
 Git is the only source control you should use. A few tips:
  
-* It is recommended to commit bower packages to source control.
-* It is **not** recommended to commit your node packages to source control
+* It is recommended to commit your_bower_components_ to source control. This reduces your project risk on these dependencies.
+* It is **not** recommended to commit your _node_modules_ to source control. Windows machines can freak out with nodes long paths. 
+* It is **not** recommended to commit your _.build_, _dist_, _coverage_, or _styleguide_ to source control.
 
 Modify the _.gitignore_ file to customize what Git includes in your source control.
 
@@ -198,6 +199,8 @@ _app.scss_ is the root scss file, a good place for any bootstrap styling overrid
 
 _app.module.js_ is the root module definition file. Register all your new modules here.
 
+_app.spec.js_ is the root application test file.
+
 _app.vendors.module.js_ is the root vendor module registration file. Register any new bower stuff here.
 
 _config.tpl.js_ is a template javascript file for the root angular app configuration. Runtime and environment variables get setup here.
@@ -291,7 +294,7 @@ Check out this [Year Of Moo - Full Spectrum Angular Testing](http://www.yearofmo
 It's a little out of date, so the syntax is incorrect, but the concepts and approaches are useful in understanding how to test your Angular applications.
 
 ### 6.1 Code Coverage
-As part of the build tools, a code coverage report is generated. This report can be accessed from _coverage/<test browser>/index.html_.
+As part of the build tools, a code coverage report is generated. This report can be accessed from _coverage/browser-name/index.html_.
 
 It is recommended that you run the tests locally, via a normal `gulp` call, as this will give you a detailed breakdown of the code coverage.
 The code coverage report from a release build only gives the coverage of the minified files.
@@ -303,7 +306,7 @@ TODO
 
 TODO
 
-scaffolding - how are the backend api calls happening?
+Q scaffolding - how are the backend api calls happening?
 
 ## 8. <a name="Contributors"></a>Contributors
 

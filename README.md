@@ -33,7 +33,6 @@ Angular Baboon tries to use the latest and greatest Angular tools, but also take
 
 Angular Baboon sticks to raw JavaScript, but should be convertible or extensible to the language of your choice by introducing the appropriate transpilers.
 
-
 ## Contributors
 
 * Matthew van der Velden (matthew.vdvelden@entelect.co.za)
