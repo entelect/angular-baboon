@@ -54,6 +54,9 @@ module.exports = {
 	//bootstrap directory
 	bootstrapDirectory: './bower_components/bootstrap-sass',
 	
+	//bootstrap style guide ouput directory
+	styleguideDirectory: './styleguide',
+	
 	//the app's build output directory
 	distributionDirectory: './dist', //supports relative pathing e.g. ../dist to place the distribution in the Angular project's parent directory
 	

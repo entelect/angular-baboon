@@ -3,7 +3,7 @@
 
 .build/*
 dist/*
-
+styleguide/*
 coverage/
  
 # Packages #
@@ -13,6 +13,7 @@ coverage/
 node_modules/*
 bower_components/*
 coverage/*
+
  
 # Logs #
 ######################

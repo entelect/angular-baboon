@@ -23,7 +23,7 @@ var watchConfiguration = {
 };
 
 gulp.task('watch:lint', function () {
-    var glob = [environment.sourceDirectory + '/**/*.js', environment.commonDirectory + '/**/*.js'];
+    var glob = [environment.sourceDirectory + '/**/*.js', environment.commonDirectory + '/common/**/*.js'];
     return gulp.watch(glob, watchConfiguration, function () {
         return gulp.src(glob)
             .pipe(cache('lint'))
@@ -34,7 +34,7 @@ gulp.task('watch:lint', function () {
 
 
 gulp.task('watch:css', function () {
-    var glob = [environment.sourceDirectory + '/**/*.scss', environment.commonDirectory + '/**/*.scss'];
+    var glob = [environment.sourceDirectory + '/**/*.scss', environment.commonDirectory + '/common/**/*.scss'];
     return gulp.watch(glob, watchConfiguration, function () {
         return gulp.src(glob)
             .pipe(cache('css'))
@@ -50,7 +50,7 @@ gulp.task('watch:css', function () {
 gulp.task('watch:templates', function () {
     var glob = [
         environment.sourceDirectory + '/**/*.tpl.html',
-        environment.commonDirectory + '/**/*.tpl.html'
+        environment.commonDirectory + '/common/**/*.tpl.html'
     ];
     return gulp.watch(glob, watchConfiguration, function () {
         var opts = {
@@ -68,11 +68,11 @@ gulp.task('watch:templates', function () {
 gulp.task('watch:js', function () {
     var glob = [
         environment.sourceDirectory + '/**/*.js',
-        environment.commonDirectory + '/**/*.js',
+        environment.commonDirectory + '/common/**/*.js',
         '!' + environment.sourceDirectory + '/**/*.spec.js',
-        '!' + environment.commonDirectory + '/**/*.spec.js',
+        '!' + environment.commonDirectory + '/common/**/*.spec.js',
         '!' + environment.sourceDirectory + '/**/*.tpl.js',
-        '!' + environment.commonDirectory + '/**/*.tpl.js'
+        '!' + environment.commonDirectory + '/common/**/*.tpl.js'
     ];
     return gulp.watch(glob, watchConfiguration, function () {
         var opts = {

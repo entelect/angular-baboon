@@ -40,7 +40,7 @@ gulp.task('dev:fonts', ['clean:fonts'], function () {
 });
 
 gulp.task('dev:css', ['clean:css'], function () {
-    return gulp.src([environment.sourceDirectory + '/**/*.scss', environment.commonDirectory + '/**/*.scss'])
+    return gulp.src([environment.sourceDirectory + '/**/*.scss', environment.commonDirectory + '/common/**/*.scss'])
         .pipe(sass({
             includePaths: [environment.bootstrapDirectory + '/assets/stylesheets'],
         }))
@@ -54,7 +54,7 @@ gulp.task('dev:templates', ['clean:templates'], function () {
     };
     return gulp.src([
         environment.sourceDirectory + '/**/*.tpl.html',
-        environment.commonDirectory + '/**/*.tpl.html'
+        environment.commonDirectory + '/common/**/*.tpl.html'
     ])
         .pipe(templateCache(opts))
         .pipe(gulp.dest(environment.buildDirectory + '/js/app/templates'))
@@ -69,11 +69,11 @@ gulp.task('dev:js', ['clean:js'], function () {
     };
     return gulp.src([
         environment.sourceDirectory + '/**/*.js',
-        environment.commonDirectory + '/**/*.js',
+        environment.commonDirectory + '/common/**/*.js',
         '!' + environment.sourceDirectory + '/**/*.spec.js',
-        '!' + environment.commonDirectory + '/**/*.spec.js',
+        '!' + environment.commonDirectory + '/common/**/*.spec.js',
         '!' + environment.sourceDirectory + '/**/*.tpl.js',
-        '!' + environment.commonDirectory + '/**/*.tpl.js'
+        '!' + environment.commonDirectory + '/common/**/*.tpl.js'
     ])
         .pipe(ngAnnotate(opts))
         .pipe(gulp.dest(environment.buildDirectory + '/js/app/'))

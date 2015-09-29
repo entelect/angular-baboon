@@ -128,3 +128,12 @@ gulp.task('clean:generated', function (callback) {
         },
         callback);
 });
+
+gulp.task('clean:styleguide', function (callback) {
+    del([
+        environment.styleguideDirectory + '/*',
+    ], {
+            force: true
+        },
+        callback);
+});
