@@ -1,5 +1,5 @@
 ## Baboon.Angular.App Synopsis
-This readme outlines the setup, configuration and usage of the Angular Baboon seed project.
+This read me outlines the setup, configuration and usage of the Angular Baboon seed project.
 ## Table of Contents
 
 1. [Installation](#Installation)
@@ -14,7 +14,7 @@ This readme outlines the setup, configuration and usage of the Angular Baboon se
 
 ## 1. <a name="Installation"></a>Installation
 
-### 1.1 Prerequisists
+### 1.1 Prerequisites
 * [nodeJS](https://nodejs.org/en/)
 * [Python (2.7)](https://www.python.org/downloads/)
 
@@ -22,11 +22,11 @@ This readme outlines the setup, configuration and usage of the Angular Baboon se
 Node is used as the environment to run all of the Angular application's build tools. 
 In general, none of your node packages should be included your final Angular application.
 
-To get started, you'll first need to do a once off isntallation of gulp and bower as globally accessible packages from the command line (-g ) using node's package manager (npm):
+To get started, you'll first need to do a once off installation of gulp and bower as globally accessible packages from the command line (-g ) using node's package manager (npm):
 
 `npm install -g gulp bower`
 
-Then run the general package isntallation. The installer will resolve package dependencies from the _package.json_ file.
+Then run the general package installation. The installer will resolve package dependencies from the _package.json_ file.
 
 `npm install`
 
@@ -64,7 +64,7 @@ Don't forget to commit changes to _bower.json_ to source control.
 ## 2. <a name="Configuration"></a>Configuration
 
 ### 2.1 Linting
-Linting is the process of running a program that will analyse code for potential errors. 
+Linting is the process of running a program that will analyze code for potential errors. 
 [Jshint](http://jshint.com/about/) is the default linting tool used in this seed project although 
 [Eslint](http://eslint.org/) is another great linting tool alternative.
 By default, jshint is set up to be very strict, but you can modify the _.jshintrc_ file to relax jshint. Check out the [jshint documentation](http://jshint.com/docs/options/) for all the available options.
@@ -93,19 +93,28 @@ Modify the _karma.config.js_ file to customize the testing configuration or incl
 [Gulp](Gulp) is the task runner used to build the Angular app.
 The _gulpfile.js_ has the following build tasks setup:
 
-`gulp` - Once off debug friendly build of the Angular app, includes linting, testing and a code coverage report.
+`gulp` or `gulp dev`- Once off debug friendly build of the Angular app, includes linting, testing and a code coverage report.
 
 `gulp clean` - Cleans out the build, distribution and code coverage directories.
 
 `gulp watch` - Watches the source directory for file contents changes, on which modified files are selectively rebuilt and live reloaded. Note that new or deleted files are not detected by gulp watch at this time.
 
-`gulp dev` - Once off build with Teamcity reporting and minification for the dev environment.
-
 `gulp qa` - Once off build with Teamcity reporting and minification for the qa environment.
 
 `gulp live` - Once off build with Teamcity reporting and minification for the live environment.
 
-### 3.2 Extending Gulp
+### 3.2 Generate a Bootstrap Style Guide (Experimental)
+
+A new experimental feature has been added to Angular Baboon to generate a living style guide per Angular application.
+It can be generated using the following gulp command:
+
+`gulp styleguide` - Generates an application specific styleguide using the Bootstrap 3 documentation. 
+
+By default, it's accessible from _styleguide/index.html. 
+The style guide generation doesn't rebuild the bootstrap documentation from scratch using Ruby and Jekyll. 
+What it does in take a prebuilt version of the docs, and replace the boostrap assets with the release build of the angular application's css.
+
+### 3.3 Extending Gulp Tasks
 
 You can add your custom gulp files to the gulp tasks directory. 
 They will automatically be included into the master gulp file when executing gulp tasks.
@@ -129,13 +138,13 @@ gulp.task('custom-task', function() {
 });
 ```
 Then running `gulp custom-task` in the root of the Angular project (Baboon.Angular.App) will execute your custom task.
-### Node Package Shrinkwrapping
+### Node Package Shrink-wrapping
 Use `npm shrinkwrap` to lock down your node dependency versions. 
 This is very useful in maintaining consistency between developer environments. 
 `npm shrinkwrap` generates a file called _npm-shrinkwrap.json_ which will override the normal _packages.json_ file when resolving dependencies during an `npm install`.
 
 ## 4. <a name="ProjectStructure"></a>Project Structure
-TODO
+Below is the Angular project structure after all the setup and build has been run:
 ```
 Baboon.Angular.App
 |	.bowerrc
@@ -154,6 +163,7 @@ Baboon.Angular.App
 └───dist
 └───gulp tasks
 └───node_modules
+└───styleguide
 └───src
 	|	app.js
 	|	app.scss
@@ -167,8 +177,32 @@ Baboon.Angular.App
 	└───assets
 	└───generated
 	└───modules
-
 ```
+Note that only the configuration files are kept at the root of the project, whilst the actual source code that gets built into the final distributable is kept in the _src_ directory.
+Explicitly included resources from the _bower_components_ directory are also included in the final distribution, but must be configured from the _environment.config.js_ file.
+Within the _src_ directory:
+
+The _src/assets_ is the general purpose assets directory. Anything not _.css_ or _.js_ should go in there.
+
+The _src/api_ directory contains _.json_ Swagger API definition files. This is only relevant if you choose to use the Angular resource scaffolding features. 
+
+The _src/generated_ directory contains the generated files from the scaffolding, don't modify these files, rather extend them.
+
+The _src/assets_ directory gets flattened and included as is during hte release build.
+
+The _src/modules_ directory contains all your glorious hand written code, see the next section for details on this.
+
+_app.js_ is the main Angular application file. Any _$rootscope_ or _run_ code should live here.
+
+_app.scss_ is the root scss file, a good place for any bootstrap styling overrides.
+
+_app.module.js_ is the root module definition file. Register all your new modules here.
+
+_app.vendors.module.js_ is the root vendor module registration file. Register any new bower stuff here.
+
+_config.tpl.js_ is a template javascript file for the root angular app configuration. Runtime and environment variables get setup here.
+
+_index.html_ is the base html page. This is the entry point to your app.
 ### 4.1 Angular Module Structure
 Angular Baboon promotes the usage of module and submodule structures that are feature focused. 
 Each module contains only the controllers, filters, directives etc. that it needs. 
@@ -210,7 +244,7 @@ Not the usage of the fully qualified name space. The prevents module name collis
 
 })();
 ```
-The _*.config.js_ files contain any module configration code, for example [ui-router](https://github.com/angular-ui/ui-router) state configuration:
+The _*.config.js_ files contain any module configuration code, for example [ui-router](https://github.com/angular-ui/ui-router) state configuration:
 ```javascript
 (function () {
     'use strict';
@@ -227,17 +261,19 @@ The _*.config.js_ files contain any module configration code, for example [ui-ro
 ``` 
 ## 5. <a name="StyleGuide"></a>Style Guide
 Every major open-source project has its own style guide: a set of conventions (sometimes arbitrary) about how to write code for that project. 
-It is much easier to understand a large codebase when all the code in it is in a consistent style.
+It is much easier to understand a large code base when all the code in it is in a consistent style.
 
 But because this just a seed project, you can choose to ignore all of this and do things your own way.
 
 Angular Baboon does have some style enforcement via jshint, which you can choose to customize, but for the most part Angular Baboon is convention driven. The following guides are recommended:
 ### 5.1 Angular
 Angular Baboon follows [John Papa's style guide](https://github.com/johnpapa/angular-styleguide) for the Angular code (mostly).
-We've found this to be a practical and reletively maintainable style.
+We've found this to be a practical and relatively maintainable style.
 
 ### 5.2 Bootstrap SASS
-http://sass-guidelin.es/
+Angular Baboon is is build with the SASS implementation of [Bootstrap 3](http://getbootstrap.com/). 
+The reason for this is that Bootstrap is changing from [LESS](http://lesscss.org/) to [SASS](http://sass-lang.com/) officially as part of Bootstrap 4.
+Check out [this style guide](http://sass-guidelin.es/) on how to keep your sassy css clean. 
 
 ### 5.3 IDE
 Its entirely up to you what IDE you use. For the the most consistent code base, it's recommended that developers use a common IDE. 
@@ -249,13 +285,16 @@ In no particular order, some other great alternatives are:
 * [Brackets.io (Free)](http://brackets.io/)
 * [Visual Studio 2013+](https://www.visualstudio.com/)
 
-
 ## 6. <a name="Testing"></a>Testing
-[Year Of Moo](http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html)
+
+Check out this [Year Of Moo - Full Spectrum Angular Testing](http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html) guide. 
+It's a little out of date, so the syntax is incorrect, but the concepts and approaches are useful in understanding how to test your Angular applications.
 
 ### 6.1 Code Coverage
-TODO
+As part of the build tools, a code coverage report is generated. This report can be accessed from _coverage/<test browser>/index.html_.
 
+It is recommended that you run the tests locally, via a normal `gulp` call, as this will give you a detailed breakdown of the code coverage.
+The code coverage report from a release build only gives the coverage of the minified files.
 
 ## 7. <a name="CommonIssues"></a>Common Issues
 TODO
@@ -263,6 +302,8 @@ TODO
 ### 7.1 Node Package Installation
 
 TODO
+
+scaffolding - how are the backend api calls happening?
 
 ## 8. <a name="Contributors"></a>Contributors
 

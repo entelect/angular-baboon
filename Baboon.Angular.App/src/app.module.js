@@ -9,12 +9,7 @@
     'templates',
     'angular-baboon.common',
     'angular-baboon.reports',
-    'angular-baboon.home',
-		
-
-		
-    
-
+    'angular-baboon.home'
   ]);
 
 })();

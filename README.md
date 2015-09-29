@@ -9,20 +9,30 @@ Furthermore, Angular Baboon seeks to bring together Entelect's consensus on Angu
 
 ## Some Nifty Features
 
-* Architecure for multiple Angular applications in a single solution.
+* Architecture for multiple Angular applications in a single solution.
 * Scalable Angular project structures.
 * Multiple environment configurations (dev, QA and live)
 * Continuous integration ready build tasks with TeamCity test reporters.
-* Out the box testing enviroment and test runner configuration.
+* Out the box testing environment and test runner configuration.
 * A collection of [common modules](Baboon.Angular.Common/README.md)
 * ...
+
+## Some Nifty Experimental Features
+
+* A bootstrap style guide generator per Angular application (without Ruby and Jekyll and all that jazz)
+
+## A Note on Alpha Development
+
+As the title suggests, Angular Baboon is currently only an alpha release. 
+Over the course of the alpha development phase, we'll be improving the documentation, extending the demo applications and testing some of the new experimental features.
 
 ## Angular Baboon's Opinion
 Angular Baboon is an opinionated seed project. So take the bits you like and delete the rest.
 
 Angular Baboon tries to use the latest and greatest Angular tools, but also takes into consideration the stability and maturity of the tools.
 
-Angular Baboon sticks to raw JavaScript, but should be convertable or extensible to the language of your choice by introducing the appropriate transpilers.
+Angular Baboon sticks to raw JavaScript, but should be convertible or extensible to the language of your choice by introducing the appropriate transpilers.
+
 
 ## Contributors
 
