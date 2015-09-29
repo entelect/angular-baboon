@@ -10,7 +10,7 @@
         var directive = {
             controller: BreadcrumbsController,
             controllerAs: 'breadcrumbs',
-            templateUrl: 'common/breadcrumbs/templates/breadcrumbs.tpl.html',
+            templateUrl: 'breadcrumbs/templates/breadcrumbs.tpl.html',
             restrict: 'EA'
         };
 

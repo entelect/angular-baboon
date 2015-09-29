@@ -10,7 +10,7 @@
         var directive = {
             controller: NavbarController,
             controllerAs: 'navbar',
-            templateUrl: 'common/navbar/templates/navbar.tpl.html',
+            templateUrl: 'navbar/templates/navbar.tpl.html',
             restrict: 'E',
             replace: true
         };

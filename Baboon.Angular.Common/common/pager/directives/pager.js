@@ -11,7 +11,7 @@
         var directive = {
             controller: Pager,
             controllerAs: 'pager',
-            templateUrl: 'common/pager/templates/pager.tpl.html',
+            templateUrl: 'pager/templates/pager.tpl.html',
             restrict: 'E',
             scope: {
                 getPagedDataAsync: '=pagingFunction',

@@ -10,7 +10,7 @@
         var directive = {
             controller: ForgotPassword,
             controllerAs: 'forgotPassword',
-            templateUrl: 'common/account/forgotpassword/templates/forgotpassword.tpl.html',
+            templateUrl: 'account/forgotpassword/templates/forgotpassword.tpl.html',
             restrict: 'EA'
         };
 

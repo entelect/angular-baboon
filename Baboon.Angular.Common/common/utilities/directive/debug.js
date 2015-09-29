@@ -9,7 +9,7 @@
 
             var directive = {
                 link: link,
-                templateUrl: 'common/utilities/templates/debug.tpl.html',
+                templateUrl: 'utilities/templates/debug.tpl.html',
                 restrict: 'EA',
                 scope: {
                     ngModel: '=',

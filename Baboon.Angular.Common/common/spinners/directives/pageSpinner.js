@@ -10,7 +10,7 @@
         var directive = {
             link: link,
             restrict: 'E',
-            templateUrl: 'common/spinners/templates/page-spinner.tpl.html',
+            templateUrl: 'spinners/templates/page-spinner.tpl.html',
             scope: {
                 spin: '='
             }

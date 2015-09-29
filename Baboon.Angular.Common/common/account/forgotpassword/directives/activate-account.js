@@ -13,7 +13,7 @@
 			controller: ActivateAccount,
 			controllerAs: 'activateAccount',
 			link: link,
-			templateUrl: 'common/account/forgotpassword/templates/activate-account.tpl.html',
+			templateUrl: 'account/forgotpassword/templates/activate-account.tpl.html',
 			scope: {
 				state: '='
 			},
