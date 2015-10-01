@@ -3,7 +3,7 @@
 	angular.module('angular-baboon')
 	.provider('resourceConfig', function resourceConfigProvider() {
 		this.config ={
-			serverBase: 'http://client.phambili.local/',
+			serverBase: 'http://client.baboon.local/',
 			debug: true
 		};
 

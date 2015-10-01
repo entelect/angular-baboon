@@ -16,7 +16,7 @@ This read me outlines the setup, configuration and usage of the Angular Baboon s
 
 ### 1.1 Prerequisites
 * [nodeJS](https://nodejs.org/en/)
-* [Python (2.7)](https://www.python.org/downloads/)
+* [Python (2.7)](https://www.python.org/downloads/) This is required for PhantomJS
 
 ### 1.2 Node Packages Setup
 Node is used as the environment to run all of the Angular application's build tools. 
@@ -67,7 +67,7 @@ Don't forget to commit changes to _bower.json_ to source control.
 Linting is the process of running a program that will analyze code for potential errors. 
 [Jshint](http://jshint.com/about/) is the default linting tool used in this seed project although 
 [Eslint](http://eslint.org/) is another great linting tool alternative.
-By default, jshint is set up to be very strict, but you can modify the _.jshintrc_ file to relax jshint. Check out the [jshint documentation](http://jshint.com/docs/options/) for all the available options.
+By default, Angular Babbon has jshint is set up to be very strict, but you can modify the _.jshintrc_ file to relax jshint. Check out the [jshint documentation](http://jshint.com/docs/options/) for all the available options.
 
 ### 2.2 Environment
 
@@ -76,7 +76,7 @@ Modify the _environment.config.js_ file to change the Angular application's dire
 ### 2.3 Git
 Git is the only source control you should use. A few tips:
  
-* It is recommended to commit your_bower_components_ to source control. This reduces your project risk on these dependencies.
+* It is recommended to commit your _bower_components_ to source control. This reduces your project risk on these dependencies.
 * It is **not** recommended to commit your _node_modules_ to source control. Windows machines can freak out with nodes long paths. 
 * It is **not** recommended to commit your _.build_, _dist_, _coverage_, or _styleguide_ to source control.
 
@@ -115,7 +115,11 @@ By default, it's accessible from _styleguide/index.html.
 The style guide generation doesn't rebuild the bootstrap documentation from scratch using Ruby and Jekyll. 
 What it does in take a prebuilt version of the docs, and replace the boostrap assets with the release build of the angular application's css.
 
-### 3.3 Extending Gulp Tasks
+### 3.3 Gulp Task Structure
+
+TODO
+
+### 3.4 Extending Gulp Tasks
 
 You can add your custom gulp files to the gulp tasks directory. 
 They will automatically be included into the master gulp file when executing gulp tasks.
