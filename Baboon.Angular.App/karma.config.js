@@ -11,10 +11,10 @@ module.exports = function (karma) {
         files: [
             //load order matters here
             { pattern: 'bower_components/angular/angular.min.js', watched: true, served: true, included: true },
-            { pattern: 'dist/**/*.min.js', watched: true, served: true, included: true },
-            { pattern: 'dist/**/*.module.js', watched: true, served: true, included: true },
-            { pattern: 'dist/**/*.config.js', watched: true, served: true, included: true },
-            { pattern: 'dist/**/*.js', watched: true, served: true, included: true },
+            { pattern: '.build/**/*.min.js', watched: true, served: true, included: true },
+            { pattern: '.build/**/*.module.js', watched: true, served: true, included: true },
+            { pattern: '.build/**/*.config.js', watched: true, served: true, included: true },
+            { pattern: '.build/**/*.js', watched: true, served: true, included: true },
             { pattern: 'bower_components/angular-mocks/angular-mocks.js', watched: true, served: true, included: true },
             { pattern: 'src/**/*.spec.js', watched: true, served: true, included: true },
             { pattern: 'src/**/*.spec.json', watched: true, served: true, included: false }
@@ -38,7 +38,7 @@ module.exports = function (karma) {
         ],
 
         preprocessors: {
-            'dist/**/*.js': ['coverage'],
+            '.build/**/*.js': ['coverage'],
             'src/**/*.spec.json': ['html2js']
         },
         /**
