@@ -9,6 +9,16 @@ This readme outlines the common modules Angular Baboon applications.
 
 ## 1. <a name="Usage"></a>Usage
 
+### 1.1 Authentication
+
+TODO
+
+### 1.1.1 Basic Authentication
+
+TODO
+
+### 1.1.2 JSON Web Token (JWT) Authentication
+
 TODO
 
 ## 2. <a name="Contributors"></a>Contributors

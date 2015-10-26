@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Changed
-- WIP
+- An untested POC for JWT authentication
 
 ## 0.0.1 - 2015-09-29
 ### Added

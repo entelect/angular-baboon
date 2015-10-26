@@ -2,7 +2,7 @@
     'use strict';
     // factory
     angular
-        .module('angular-baboon.common.authentication')
+        .module('angular-baboon.common.authentication.basic.factory', [])
         .factory('authentication', Authentication);
 
     Authentication.$inject = ['$log', '$state', 'Account', 'heartbeat', 'localStorageService', 'toaster'];
@@ -51,13 +51,13 @@
             var promise = Account.login(loginCredentials);
 
             promise.$promise.then(function (data) {
-                    isLoggedInState = true;
-                    currentUser = data;
-                    var isKeySet = localStorageService.set(currentUserStorageKey, data);
-                    if (!isKeySet) {
-                        toaster.warning('Browser local storage not available', 'User session not stored.');
-                    }
-                })
+                isLoggedInState = true;
+                currentUser = data;
+                var isKeySet = localStorageService.set(currentUserStorageKey, data);
+                if (!isKeySet) {
+                    toaster.warning('Browser local storage not available', 'User session not stored.');
+                }
+            })
                 .then(function () {
                     heartbeat.start();
                     $state.go('home');
@@ -70,21 +70,21 @@
             var promise = Account.logout();
 
             promise.$promise.then(function () {
-                    var isKeyRemoved = localStorageService.remove(currentUserStorageKey);
-                    if (isKeyRemoved) {
-                        resetState();
-                    } else {
-                        isLoggedInState = true;
-                        toaster.warning('Browser local storage not available', 'User session not stored.');
-                    }
-                })
+                var isKeyRemoved = localStorageService.remove(currentUserStorageKey);
+                if (isKeyRemoved) {
+                    resetState();
+                } else {
+                    isLoggedInState = true;
+                    toaster.warning('Browser local storage not available', 'User session not stored.');
+                }
+            })
                 .then(function () {
                     heartbeat.stop();
-                }).then(function(){
+                }).then(function () {
                     isLoggedInState = false;
                     $state.go('home');
-                });  
-            
+                });
+
             return promise;
         }
 

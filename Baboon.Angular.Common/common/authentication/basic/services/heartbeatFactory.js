@@ -2,7 +2,7 @@
     'use strict';
     // factory
     angular
-        .module('angular-baboon.common.heartbeat')
+        .module('angular-baboon.common.authentication.basic.heartbeat',[])
         .factory('heartbeat', Heartbeat);
 
     Heartbeat.$inject = ['$timeout', 'HeartBeat'];

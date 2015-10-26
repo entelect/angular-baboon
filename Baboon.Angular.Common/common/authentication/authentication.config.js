@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('angular-baboon.common.authentication')
-        .config(function ($httpProvider) {
-            $httpProvider.interceptors.push('authHttpInterceptor');
+        .config(function () {
+           //nothing to do here yet
         });
 
 })();
