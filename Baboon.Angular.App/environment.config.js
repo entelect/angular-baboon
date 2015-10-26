@@ -68,6 +68,7 @@ module.exports = {
 		'bower_components/jquery/dist/jquery.min.js',
 		'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
 		'bower_components/angular/angular.min.js',
+		'bower_components/angular-i18n/angular-locale_en-za.js',
 		'bower_components/angular-animate/angular-animate.min.js',
 		'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
 		'bower_components/angular-messages/angular-messages.min.js',
