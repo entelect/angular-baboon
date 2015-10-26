@@ -5,9 +5,9 @@
         .module('angular-baboon.common.authentication.jwt.factory', [])
         .factory('authentication', Authentication);
 
-    Authentication.$inject = ['$log', '$q', '$http', '$state', 'resourceConfig', 'localStorageService', 'Account', 'toaster'];
+    Authentication.$inject = ['$log', '$q', '$http', '$state', 'localStorageService', 'Account', 'toaster'];
 
-    function Authentication($log, $q, $http, $state, resourceConfig, localStorageService, Account, toaster) {
+    function Authentication($log, $q, $http, $state, localStorageService, Account, toaster) {
         var isLoggedInState = false;
         var currentUser = null;
         var currentUserStorageKey = 'currentUser';
@@ -47,7 +47,7 @@
 
             var deferred = $q.defer();
 
-            $http.post(resourceConfig.serverName + '/api/oauth/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
+            $http.post('/api/oauth/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
                 var isKeySet = localStorageService.set(authorizationDataStorageKey, { token: response.access_token, userName: loginCredentials.userName, refreshToken: "", useRefreshTokens: false });
                 if (!isKeySet) {

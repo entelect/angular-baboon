@@ -3,8 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
-### Changed
+### Added
 - An untested POC for JWT authentication
+- A Basic login page to test JWT and basic auth
+### Changed
+- Updated README docs.
 - Set South African localization as the default (Thanks to JWorthe)
 
 ## 0.0.1 - 2015-09-29

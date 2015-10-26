@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="angular-baboon" class="ng-app:angular-baboon" ng-strict-di ng-hint>
+<html ng-app="angular-baboon" class="ng-app:angular-baboon" ng-strict-di>
 
 <head>
     <meta charset="utf-8">
@@ -38,17 +38,17 @@
 
 </head>
 
-<body ng-controller="AppCtrl as appCtrl" class="full-height" ng-strict-di>
+<body ng-controller="AppCtrl as appCtrl" ng-strict-di>
     <navbar></navbar>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <breadcrumbs></breadcrumbs>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <div ui-view>
+            <div class="col-lg-12">
+                <div ui-view="main">
                     <h1>Unsupported Web Browser</h1>
                     <!--[if IE 8]><h3>Upgrade your browser</h3>
 					<p>Your browser is not supported at this time. <a href="http://browsehappy.com/" target="_blank">Browse Happy</a> can assist you in upgrading to a modern web browser for free.</p>
