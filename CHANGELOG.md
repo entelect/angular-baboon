@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased][unreleased]
 ### Changed
 - An untested POC for JWT authentication
+- Set South African localization as the default (Thanks to JWorthe)
 
 ## 0.0.1 - 2015-09-29
 ### Added
