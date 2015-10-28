@@ -7,7 +7,6 @@ var sass = require('gulp-sass');
 var gutil = require('gulp-util');
 var template = require('gulp-template');
 var inject = require("gulp-inject");
-var filesize = require('gulp-filesize');
 var debug = require('gulp-debug');
 var ngAnnotate = require('gulp-ng-annotate');
 var runSequence = require('run-sequence');

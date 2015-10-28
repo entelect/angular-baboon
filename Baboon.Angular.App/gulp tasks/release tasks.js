@@ -9,7 +9,6 @@ var minifyCSS = require('gulp-minify-css');
 var minifyHTML = require('gulp-minify-html');
 var template = require('gulp-template');
 var inject = require("gulp-inject");
-var filesize = require('gulp-filesize');
 var debug = require('gulp-debug');
 var runSequence = require('run-sequence');
 var preprocess = require('gulp-preprocess');

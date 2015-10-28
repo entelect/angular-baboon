@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var del = require('del');
-var filesize = require('gulp-filesize');
 var debug = require('gulp-debug');
 
 var environment = require('../environment.config.js');

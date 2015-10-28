@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var karma = require('karma');
 var path = require('path');
 var gutil = require('gulp-util');
-var filesize = require('gulp-filesize');
 var debug = require('gulp-debug');
 var karmaParseConfig = require('karma/lib/config').parseConfig;
 

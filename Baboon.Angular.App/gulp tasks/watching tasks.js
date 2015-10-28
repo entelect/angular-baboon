@@ -10,7 +10,6 @@ var templateCache = require('gulp-angular-templatecache');
 var jshint = require('gulp-jshint');
 var livereload = require('gulp-livereload');
 var watch = require('gulp-watch');
-var filesize = require('gulp-filesize');
 var preprocess = require('gulp-preprocess');
 var inject = require("gulp-inject");
 var debug = require('gulp-debug');

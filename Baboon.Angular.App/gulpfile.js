@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var filesize = require('gulp-filesize');
 var debug = require('gulp-debug');
 
 var requireDir = require('require-dir');

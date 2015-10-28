@@ -4,34 +4,27 @@ var gutil = require('gulp-util');
 var scaffold = require('gulp-ng-scaffold');
 var del = require('del');
 var fs = require('fs');
-var fetchSchema = require('fetch-swagger-schema');
+var SwaggerParser = require('swagger-parser');
 var runSequence = require('run-sequence');
 var environment = require('../environment.config.js');
 
 
 gulp.task('fetch', function (callback) {
-    fetchSchema(environment.swaggerAPIDocsUrl, function (error, schema) {
-        if (error) {
-            return console.error(error);
-        } else {
+    SwaggerParser.validate(environment.swaggerAPIDocsUrl)
+        .then(function (api) {
+            console.log("Fetched Swagger API: %s, Version: %s", api.info.title, api.info.version);
             fs.mkdir(environment.apiSpecificationDirectory, function (error) {
-                if(error){
+                if (error) {
                     console.log('Failed to create directory: ' + environment.apiSpecificationDirectory);
                 }
-                
-                for (var i = 0; i < schema.apis.length; i++) {
-                    var api = schema.apis[i];
-
-                    name = environment.apiSpecificationDirectory + '/' + api.path.replace('/', '') + '.json';
-
-                    fs.writeFileSync(name, JSON.stringify(api.apiDeclaration), 'utf-8');
-                }
+                var name = environment.apiSpecificationDirectory + '/' + api.info.title.replace('/', '') + '.json';
+                fs.writeFileSync(name, JSON.stringify(api), 'utf-8');
                 callback();
             });
-            
-        }
-
-    });
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
 });
 
 gulp.task('scaffold', function () {
@@ -41,16 +34,12 @@ gulp.task('scaffold', function () {
         resourceOutput: environment.sourceDirectory + '/generated/resources',
         testsOutput: environment.sourceDirectory + '/generated/resources/tests',
         serverBase: environment.appConfig[environment.target].serverBase,
-        resourceConfigName: 'resourceConfig',
-        ngAnnotateOptions: {
-            remove: true,
-            add: true,
-            single_quotes: true
-        }
+        resourceConfigName: 'resourceConfig'
     };
 
     return gulp.src(environment.apiSpecificationDirectory + '/*.json')
         .pipe(scaffold(opts))
+        .pipe(gulp.dest(environment.sourceDirectory + '/generated/resources'))
         .on('error', gutil.log);
 });
 
