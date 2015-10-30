@@ -38,7 +38,7 @@ gulp.task('watch:css', function () {
         return gulp.src(glob)
             .pipe(cache('css'))
             .pipe(sass({
-                includePaths: [environment.bootstrapDirectory + '/assets/stylesheets'],
+                includePaths: environment.sassIncludeDirectories
             }))
             .pipe(remember('css'))
             .pipe(gulp.dest(environment.distributionDirectory + '/css/app/'))

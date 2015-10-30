@@ -86,7 +86,12 @@ module.exports = {
 		//don't add bootstrap in here (it's included as part of the bootstrap-sass build pipeline)
 		'bower_components/angular-toastr/dist/angular-toastr.min.css'
     ],
-	
+
+    //explicitly list any folders that you want to @import in your sass code
+    sassIncludeDirectories: [
+        './bower_components/bootstrap-sass/assets/stylesheets'
+    ],
+    
 	//explicit list of included vendor font dependencies
 	fonts: [
         'bower_components/**/*.woff',
