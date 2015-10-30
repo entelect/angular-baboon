@@ -8,7 +8,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - A Basic login page to test JWT and basic auth
 ### Changed
 - Updated README docs.
-- Set South African localization as the default (Thanks to JWorthe)
+- Set South African localization as the default (Thanks to JWorthe PR #1)
+- Changed SASS include paths to be explicitly configured (Thanks to JWorthe PR#2)
 
 ## 0.0.1 - 2015-09-29
 ### Added
