@@ -41,7 +41,7 @@ gulp.task('dev:fonts', ['clean:fonts'], function () {
 gulp.task('dev:css', ['clean:css'], function () {
     return gulp.src([environment.sourceDirectory + '/**/*.scss', environment.commonDirectory + '/common/**/*.scss'])
         .pipe(sass({
-            includePaths: [environment.bootstrapDirectory + '/assets/stylesheets'],
+            includePaths: environment.sassIncludeDirectories,
         }))
         .pipe(gulp.dest(environment.buildDirectory + '/css/app/'))
         .on('error', gutil.log);;
