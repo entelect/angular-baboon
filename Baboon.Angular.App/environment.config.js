@@ -80,6 +80,12 @@ module.exports = {
 		'bower_components/angular-moment/angular-moment.js',
 		"bower_components/angular-filter/dist/angular-filter.min.js"        
 	],
+    //explicit set the rules for ordering vendor javascript files
+    vendorJsOrder: [
+        '**/jquery.min.js',
+        '**/angular.min.js',
+        '*'
+    ],
 
 	//explicit list of included vendor css dependencies
 	vendorCssFiles: [ 
