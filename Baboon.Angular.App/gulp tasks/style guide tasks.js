@@ -30,7 +30,7 @@ gulp.task('styleguide:css', [], function () {
     var vendorSource = gulp.src(environment.vendorCssFiles);
     var customSource = gulp.src([environment.sourceDirectory + '/**/*.scss', environment.commonDirectory + '/common/**/*.scss'])
         .pipe(sass({
-            includePaths: [environment.bootstrapDirectory + '/assets/stylesheets'],
+            includePaths: environment.sassIncludeDirectories
         }));
 
     return es.merge(vendorSource, customSource)
