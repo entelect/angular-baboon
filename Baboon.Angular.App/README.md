@@ -42,6 +42,14 @@ Baboon.Angular.App
 	│   gulp
 	│   ...
 ```
+Following this you can do a once off build and test of the app with:
+
+`npm test`
+
+And start the app with live reload by:
+
+`npm start`
+
 You can add new node dependencies in the following way:
 
 `npm install my-extra-package --save`
@@ -90,11 +98,21 @@ Modify the _karma.config.js_ file to customize the testing configuration or incl
 
 ## 3. <a name="Usage"></a>Usage
 
+The basic usage is briefly described below, and detailed in the installation section 1.2:
+
+`npm install`
+
+`npm test`
+
+`npm start`
+
+Section 3.1 below describes the focused gulp tasks usages that are useful for CI server intergration or specific build scenarios.
+
 ### 3.1 Building the Angular App with Gulp
 [Gulp](Gulp) is the task runner used to build the Angular app.
 The _gulpfile.js_ has the following build tasks setup:
 
-`gulp` or `gulp dev`- Once off debug friendly build of the Angular app, includes linting, testing and a code coverage report.
+`gulp` or `gulp dev` - Once off debug friendly build of the Angular app, includes linting, testing and a code coverage report.
 
 `gulp clean` - Cleans out the build, distribution and code coverage directories.
 
