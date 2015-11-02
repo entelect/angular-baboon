@@ -4,7 +4,9 @@
   "description": "Entelect Angular 1.4.0 Seed Project",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "postinstall": "bower install",
+    "test": "gulp",
+    "start": "gulp watch & http-server dist"
   },
   "keywords": [
     "Entelect"
@@ -60,7 +62,8 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.4",
     "swagger-parser": "^3.3.0",
-    "uglify-js": "~2.4.19"
+    "uglify-js": "~2.4.19",
+    "http-server": "~0.8.5"
   },
   "devDependencies": {
     "gulp-order": "^1.1.1"
