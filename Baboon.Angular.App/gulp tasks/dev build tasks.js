@@ -12,7 +12,7 @@ var ngAnnotate = require('gulp-ng-annotate');
 var runSequence = require('run-sequence');
 var flatten = require('gulp-flatten');
 var preprocess = require('gulp-preprocess');
-var angularFilesort = require('gulp-angular-filesort');
+var order = require('gulp-order');
 
 var environment = require('../environment.config.js');
 
@@ -106,7 +106,7 @@ gulp.task('dev:index', ['clean:html'], function () {
     var target = gulp.src(environment.sourceDirectory + '/index.html');
 
     var vendorJSSources = gulp.src([environment.buildDirectory + '/js/vendor/**/*'])
-        .pipe(angularFilesort())
+        .pipe(order(environment.vendorJsOrder))
         .on('error', gutil.log);
 
     var vendorCSSSources = gulp.src([

@@ -63,6 +63,6 @@
     "uglify-js": "~2.4.19"
   },
   "devDependencies": {
-    "gulp-angular-filesort": "^1.1.1"
+    "gulp-order": "^1.1.1"
   }
 }

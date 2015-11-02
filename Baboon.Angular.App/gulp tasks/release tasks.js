@@ -13,7 +13,7 @@ var debug = require('gulp-debug');
 var runSequence = require('run-sequence');
 var preprocess = require('gulp-preprocess');
 var revall = require('gulp-rev-all');
-var angularFilesort = require('gulp-angular-filesort');
+var order = require('gulp-order');
 
 var environment = require('../environment.config.js');
 
@@ -52,7 +52,7 @@ gulp.task('release:js', ['dev:js', 'dev:config'], function () {
 
 gulp.task('release:js:vendor', ['dev:js:vendor'], function () {
     return gulp.src([environment.buildDirectory + '/js/vendor/**/*'])
-        .pipe(angularFilesort())
+        .pipe(order(environment.vendorJsOrder))
         .pipe(concat('vendor.js'))
         .pipe(rename('vendor.min.js'))
         .pipe(revall(revisioningConfig))
