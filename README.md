@@ -27,7 +27,7 @@ As the title suggests, Angular Baboon is currently only an alpha release.
 Over the course of the alpha development phase, we'll be improving the documentation, extending the demo applications and testing some of the new experimental features.
 
 ## Angular Baboon's Opinion
-Angular Baboon is an opinionated seed project. So take the bits you like and delete the rest.
+Angular Baboon is an opinionated seed project. So use your brain and evaluate Angular Baboon for yourself. Take the bits you like and delete the rest. Make it your own.
 
 Angular Baboon tries to use the latest and greatest Angular tools, but also takes into consideration the stability and maturity of the tools.
 
