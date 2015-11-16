@@ -126,24 +126,24 @@ gulp.task('release:index', function () {
     return target
         .pipe(inject(vendorSources, {
             ignorePath: [
-                environment.distributionDirectory.replace('./', ''),
-                environment.buildDirectory.replace('./', '')
+                environment.distributionDirectory,
+                environment.buildDirectory
             ],
             addRootSlash: false,
             name: 'vendor'
         }))
         .pipe(inject(templateSources, {
             ignorePath: [
-                environment.distributionDirectory.replace('./', ''),
-                environment.buildDirectory.replace('./', '')
+                environment.distributionDirectory,
+                environment.buildDirectory
             ],
             addRootSlash: false,
             name: 'templates'
         }))
         .pipe(inject(sources, {
             ignorePath: [
-                environment.distributionDirectory.replace('./', ''),
-                environment.buildDirectory.replace('./', '')
+                environment.distributionDirectory,
+                environment.buildDirectory
             ],
             addRootSlash: false
         }))

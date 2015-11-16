@@ -12,6 +12,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Set South African localization as the default (Thanks to JWorthe PR #1)
 - Changed SASS include paths to be explicitly configured (Thanks to JWorthe PR#2)
 - Changed vendor file sorting to be configuration driven. Porject angular files are still sorted with (Thanks to JWorthe PR#4)
+- Fixed duplicate viewport tag (Thanks to JWorthe PR#6)
+- Fixed a path issue in the index.html file when building for qa or release environments.
 
 ## 0.0.1 - 2015-09-29
 ### Added
