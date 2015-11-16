@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - An POC for JWT authentication (Thanks to HendrikKolver for testing and improvements PR#7)
 - A Basic login page to test JWT and basic auth
 - Added npm scripts to ease development workflow (Thanks to JWorthe PR#5)
+
 ### Changed
 - Updated README docs.
 - Set South African localization as the default (Thanks to JWorthe PR #1)
