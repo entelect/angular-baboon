@@ -3,11 +3,20 @@
     // factory
     angular
         .module('angular-baboon.common.jwt-authentication.interceptor', [])
-        .factory('jwtAuthInterceptor', ['$q', '$injector', '$location', 'localStorageService', function ($q, $injector, $location, localStorageService) {
+        .factory('jwtAuthInterceptor',JwtAuthInterceptor);
 
-            var authInterceptorFactory = {};
+        JwtAuthInterceptor.$inject = ['$q', '$injector', '$location', 'localStorageService', '$rootScope'];
 
-            var request = function (config) {
+         function JwtAuthInterceptor($q, $injector, $location, localStorageService, $rootScope) {
+
+            var authInterceptorFactory = {
+              request: request,
+              responseError: responseError
+            };
+
+            return authInterceptorFactory;
+
+            function request(config) {
 
                 config.headers = config.headers || {};
 
@@ -19,26 +28,20 @@
                 return config;
             }
 
-            var responseError = function (rejection) {
+            function responseError (rejection) {
                 if (rejection.status === 401) {
-                    var authService = $injector.get('authService');
-                    var authData = localStorageService.get('authorizationData');
+                    var authService = $injector.get('authentication');
+                    var state = $injector.get('$state');
+                    var toaster = $injector.get('toaster');
 
-                    if (authData) {
-                        if (authData.useRefreshTokens) {
-                            $location.path('/refresh');
-                            return $q.reject(rejection);
-                        }
-                    }
-                    authService.logOut();
-                    $location.path('/login');
+                    authService.logout();
+
+                    toaster.error("Your session has expired, Please log in again", "Error");
+                    $rootScope.$broadcast('userLoggedInStatusChangedReloadNavBar');
+
+                    state.go('login');
                 }
                 return $q.reject(rejection);
             }
-
-            authInterceptorFactory.request = request;
-            authInterceptorFactory.responseError = responseError;
-
-            return authInterceptorFactory;
-        }]);
+          }
 })();

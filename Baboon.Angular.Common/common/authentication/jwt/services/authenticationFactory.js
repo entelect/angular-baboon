@@ -5,10 +5,10 @@
         .module('angular-baboon.common.authentication.jwt.factory', [])
         .factory('authentication', Authentication);
 
-    Authentication.$inject = ['$log', '$q', '$http', '$state', 'localStorageService', 'Account', 'toaster'];
+    Authentication.$inject = ['$log', '$q', '$http', 'localStorageService', 'Account', 'toaster', 'jwtTokenDecoder'];
 
-    function Authentication($log, $q, $http, $state, localStorageService, Account, toaster) {
-        var isLoggedInState = false;
+    function Authentication($log, $q, $http, localStorageService, Account, toaster, jwtTokenDecoder) {
+        var isLoggedInState = null;
         var currentUser = null;
         var currentUserStorageKey = 'currentUser';
         var authorizationDataStorageKey = 'authorizationData';
@@ -19,7 +19,8 @@
             unauthorizedRequest: unauthorizedRequest,
             getCurrentUser: getCurrentUser,
             isLoggedIn: isLoggedIn,
-            getUserNavMenu: getUserNavMenu
+            getUserNavMenu: getUserNavMenu,
+            getClaims: getClaims
         };
 
         init();
@@ -31,13 +32,15 @@
         function init() {
             if (localStorageService.isSupported) {
                 var localStorageCurrentUser = localStorageService.get(currentUserStorageKey);
-                var localStorageAuthorizationData = localStorageService.get(authorizationDataStorageKey);
+                var localStorageAuthorizationData = localStorageService.get(authorizationDataStorageKey); //***************** TODO decode this JWT Token JWT.io
                 /*
 				Having a user in local storage DOES NOT imply that the user 's token is still valid.
 				*/
                 if (localStorageCurrentUser && localStorageAuthorizationData) {
                     currentUser = localStorageCurrentUser;
                     isLoggedInState = true;
+                }else{
+                  logout();
                 }
             }
         }
@@ -58,12 +61,14 @@
                 currentUser = Account.getCurrentUser();
 
                 currentUser.$promise.then(function () {
+                    localStorageService.set(currentUserStorageKey, currentUser);
                     deferred.resolve(response);
                 }, function (err) {
-                    deferred.reject(err)
-                })
+                    deferred.reject(err);
+                });
 
             }).error(function (err, status) {
+                toaster.error("Incorrect login details provided", "Error");
                 logout();
                 deferred.reject(err);
             });
@@ -95,7 +100,7 @@
                 resetState();
             }
 
-            $log.warn('User not logged in. Current state: ' + $state.current.name);
+            $log.warn('User not logged in');
         }
 
         function resetState() {
@@ -112,8 +117,16 @@
         }
 
         function getUserNavMenu() {
-            return Account.getUserNavMenu();
+            throw "Method not supported, use getClaims() instead";
         }
 
+        function getClaims(){
+          var tokenObject = localStorageService.get(authorizationDataStorageKey);
+          if(tokenObject){
+            var decodedToken = jwtTokenDecoder.decodeToken(tokenObject.token);
+            return decodedToken.role;
+          }
+          return null;
+        }
     }
 })();
