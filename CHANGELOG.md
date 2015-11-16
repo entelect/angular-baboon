@@ -3,8 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
+- No work in progress. We're testing.
+
+## 0.0.2 - 2015-11-16
 ### Added
-- An untested POC for JWT authentication
+- An POC for JWT authentication (Thanks to HendrikKolver for testing and improvements PR#7)
 - A Basic login page to test JWT and basic auth
 - Added npm scripts to ease development workflow (Thanks to JWorthe PR#5)
 ### Changed

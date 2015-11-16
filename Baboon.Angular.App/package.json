@@ -1,6 +1,6 @@
 {
   "name": "angular-baboon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Entelect Angular 1.4.0 Seed Project",
   "main": "index.js",
   "scripts": {
