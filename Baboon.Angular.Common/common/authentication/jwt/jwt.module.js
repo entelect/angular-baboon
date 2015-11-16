@@ -3,7 +3,8 @@
 
 	angular.module('angular-baboon.common.authentication.jwt', [
 		'angular-baboon.common.authentication.jwt.factory',
-		'angular-baboon.common.jwt-authentication.interceptor'
+		'angular-baboon.common.jwt-authentication.interceptor',
+		'angular-baboon.common.jwt-authentication.decode'
 	]);
 
 })();
