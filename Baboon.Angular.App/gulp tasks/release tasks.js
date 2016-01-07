@@ -39,7 +39,8 @@ gulp.task('release:js', ['dev:js', 'dev:config'], function () {
     return gulp.src([
         environment.buildDirectory + '/js/app/**/*.module.js',
         environment.buildDirectory + '/js/app/**/*.config.js',
-        environment.buildDirectory + '/js/app/**/*'
+        environment.buildDirectory + '/js/app/**/*',
+        '!' + environment.buildDirectory + '/js/app/templates**/*.js'
     ])
         .pipe(concat('app.js'))
         .pipe(ngAnnotate(annotationConfig))
