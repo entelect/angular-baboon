@@ -3,7 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
-- No work in progress. We're testing.
+### Changed
+- Relaxed the maximum number of formal params allowed per function in the .jshint configuration from 3 to 5.
+- Fixed templatesCache being duplicated in release build (Thanks to JWorthe PR#8)
 
 ## 0.0.2 - 2015-11-16
 ### Added
